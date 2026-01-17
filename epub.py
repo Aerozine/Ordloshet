@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     for epub_file in tqdm(epub_files, desc="Books", unit="book"):
         try:
-            output_file = translate_epub(epub_file)
+            output_file = cook(epub_file)
             tqdm.write(f"✓ {epub_file} → {output_file}")
         except Exception as e:
             tqdm.write(f"✗ Error processing {epub_file}: {e}")
