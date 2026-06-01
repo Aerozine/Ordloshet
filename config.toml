@@ -1,3 +1,38 @@
-[main]
-hello=3
+# Ordloshet default configuration.
+# Values here are used as defaults for epub.py flags and can be overridden on the command line.
+# Uncomment and edit the lines you want to change.
 
+[defaults]
+# model    = "nllb"
+# strategy = "light"
+# chapter  = "1"
+
+# book_config = "my_book.toml"  # path to a custom TOML override (optional)
+
+# Inference
+# batch_size        = 4
+# batch_token_limit = 1400
+# context_window    = 3
+# attn_implementation = "auto"   # auto | sdpa | flash_attention_2 | eager
+
+# torch_compile = true     # set to false to disable torch.compile globally
+# fused_models  = false    # keep draft + patcher both loaded simultaneously
+
+# Quality
+# qe_engine     = "auto"   # auto | cometkiwi | heuristic
+# comet_model   = "auto"
+
+# New features (uncomment to enable by default)
+# auto_glossary          = false   # extract glossary terms from chapter 1 automatically
+# entity_memory          = false   # track named entity translations across chapters
+# coref_resolution       = false   # use fastcoref for better speaker attribution
+# chrf_evaluation        = false   # compute chrF score against --eval-reference
+# chapter_checkpoint     = false   # resume interrupted chapter from sidecar file
+# persistent_style_memo  = false   # grow style memo across chapters (requires --book-memory)
+# grammar_check          = false   # run LanguageTool grammar checker on French output
+# french_nlp             = false   # spaCy fr_core_news_sm: tense mixing + gender agreement
+# memo_token_budget      = 600     # max tokens injected into each patcher call as style memo
+
+# Output
+# print_text = true
+# chunk_preview_chars = 1200

@@ -1,18 +1,26 @@
-# Ordløshet 
-In Norvegian it means the inability to speak because meaning exceeds words.
+# Ordloshet
 
-Actually this repository is still in its early days
-Functionnal feature will be added later
+In Norwegian it means the inability to speak because meaning exceeds words.
 
-# epub tranlsator
-- hardcoded english to french translation in translatorNLLB.py
-to translate , simply run 
+## EPUB Translator
+For now it is still WIP.
+Translates English EPUB to French using local large language models.
+
+### Usage
+
 ```bash
-python epub.py *.epub
+python epub.py --model nllb --strategy light --book file.epub
 ```
-Warning: this takes a long time, so don't try to translate War and Peace unless you want to turn your GPU into a personal radiator.
 
+### Models
 
+| Model | Type | Notes |
+|-------|------|-------|
+| `nllb` / `nllb-ct2` | Draft | NLLB-200 3.3B |
+| `madlad` | Draft | MADLAD-400 10B |
+| `opus` / `opus-ct2` | Draft | Helsinki OPUS-MT |
+| `gemma` | Direct | Gemma Translate 12B |
+| `mistral` / `qwen` / `tower` | Patcher | LLM post-editors |
+| `nllb-qwen`, `madlad-literary`, ... | Composite | Draft + patcher pipelines |
 
-
-
+> Warning side effect : transform your computer as heatsink and occupy a lot of place in your disk ( due to model weight ) 

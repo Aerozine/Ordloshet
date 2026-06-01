@@ -1,0 +1,90 @@
+# Core dependencies for EPUB translator pipeline
+
+# Text processing and XML parsing
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# EPUB handling
+ebooklib>=0.17,<0.21
+tqdm>=4.66.0
+
+# TOML parsing (built-in on Python >= 3.11; needed below that)
+tomli>=2.0.1; python_version < "3.11"
+
+# Testing
+pytest>=8.0.0
+
+# 
+# ML core
+# 
+
+# Transformers-based models (NLLB, MADLAD, OPUS, Gemma, Mistral, Qwen, Tower, Seamless)
+torch>=2.2.0
+transformers>=4.40.0
+accelerate>=0.28.0
+sentencepiece>=0.2.0
+huggingface-hub>=0.22.0
+
+# 
+# Optional: faster inference runtimes
+# 
+
+# CTranslate2 — for nllb-ct2, opus-ct2, madlad-ct2 adapters
+ctranslate2>=4.7.0
+
+# vLLM — for qwen-vllm and mistral-vllm adapters (installs its own torch)
+# vllm>=0.4.0
+
+# Flash Attention 2 — auto-detected by translatorOptim; significant speed-up on Ampere+
+# flash-attn>=2.5.0  # build from source or install wheel matching your CUDA/torch
+
+# 4-bit NF4 quantization — for madlad-q4 adapter
+bitsandbytes>=0.43.0
+
+# 
+# Optional: quality estimation and evaluation
+# 
+
+# COMETKiwi — for --qe-engine auto / --patcher qe
+unbabel-comet>=2.2.0
+
+# 
+# Optional: FAISS semantic correction memory (faster than Jaccard on large memories)
+# 
+
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.0
+
+# 
+# Optional: SONAR adapter
+# 
+
+# sonar-space>=0.2.0   # Meta SONAR; also requires fairseq2
+# fairseq2>=0.3.0
+
+# 
+# Optional: AWQ quantization adapters (qwen-awq, mistral-awq) — ~4GB VRAM
+# 
+
+# autoawq>=0.2.5
+
+# 
+# Optional: entity memory (--entity-memory) + French NLP (--french-nlp)
+# 
+
+# spacy>=3.7.0
+# After install:
+#   python -m spacy download en_core_web_sm   # for --entity-memory
+#   python -m spacy download fr_core_news_sm  # for --french-nlp (tense, agreement)
+
+# 
+# Optional: chrF evaluation (--chrf-evaluation)
+# 
+
+# sacrebleu>=2.4.0
+
+# 
+# Optional: coreference resolution (--coref-resolution)
+# 
+
+# fastcoref>=2.1.6
